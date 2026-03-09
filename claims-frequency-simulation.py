@@ -10,10 +10,9 @@ rng=np.random.default_rng(42) #random number generator which is reproducable (se
 
 #2. Simulate claim frequency for each year
 n_claims = rng.poisson(lam=lam, size=n_years)
-print(n_claims)
 #3. Simulate severities and aggregate losses per year
 aggregate_losses = np.zeros(n_years)
-print(aggregate_losses)
+
 for i in range(n_years):
     if n_claims[i] > 0:
         severities = rng.lognormal(mean=mu, sigma=sigma, size=n_claims[i])
@@ -30,3 +29,4 @@ results = {
 }
 #Print results without properly formatting it
 print(results)
+
